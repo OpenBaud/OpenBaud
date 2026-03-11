@@ -99,7 +99,7 @@ LPWAN & Sensor Networks: Smart unpacking and feature extraction for encrypted or
 Edge Computing Nodes: Deploy in lightweight edge gateways to perform local "payload-to-value" cleansing and translation before cloud ingestion.
 
 🛠️ How it Works
-
+```text
 [Edge Gateways / DAQ / PLCs / Sensors] 
        | (Raw Hex / Bytes / Payloads)
        v

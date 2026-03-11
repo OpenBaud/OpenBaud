@@ -1,5 +1,3 @@
-# OpenBaud
-Eliminate tedious manual configuration. Empower platforms and large models with data from massive heterogeneous devices through an end-to-end automated parsing architecture.
 # 📡 openbaud
 
 [![Status: Work in Progress](https://img.shields.io/badge/Status-Work%20in%20Progress-orange.svg)]()
@@ -7,9 +5,12 @@ Eliminate tedious manual configuration. Empower platforms and large models with 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
 
 > **The AI-Powered Protocol Cognitive Engine for IoT.**
-> 将混沌的底层物联网报文，转化为人类与智能体可读的数字意义。
+> Translating chaotic, raw IoT telemetry into meaningful digital semantics for humans and AI agents.
 
 ---
+
+<details>
+<summary><b>🇨🇳 点击展开中文版说明 (Click to expand Chinese version)</b></summary>
 
 ## 💡 什么是 openbaud？
 
@@ -30,9 +31,9 @@ Eliminate tedious manual configuration. Empower platforms and large models with 
 
 `openbaud` 旨在成为连接物理世界与数字世界的万能接口，极其适用于以下场景：
 
-* **工业 PLC 与控制器接入：** 自动破译类似三菱 Q 系列（如 Q06UDVCPU）等主流或非标 PLC 的底层通信报文。
-* **电子测量与 DAQ 仪器：** 快速解析基于 SCPI 协议的复杂仪器返回的原始测量数据流。
-* **低功耗广域网（LPWAN）解析：** 针对 LoRaWAN 网关（如 ME68 节点）上传的加密或压缩 payload 进行智能解包与特征提取。
+* **工业 PLC 与控制器接入：** 自动破译主流或非标 PLC 的底层通信报文。
+* **电子测量与 DAQ 仪器：** 快速解析基于 SCPI 等协议的复杂仪器返回的原始测量数据流。
+* **低功耗广域网（LPWAN）解析：** 针对 LoRaWAN 网关上传的加密或压缩 payload 进行智能解包与特征提取。
 * **边缘计算节点：** 部署在轻量级边缘网关中，在数据上云前完成“报文 -> 有意义数值”的本地清洗与翻译。
 
 ## 🛠️ 工作原理
@@ -50,3 +51,99 @@ Eliminate tedious manual configuration. Empower platforms and large models with 
        | (Meaningful Values / 结构化 JSON)
        v
 [物联网中台 / AI Agents / 数据可视化面板]
+🚧 当前状态：积极开发中 (Work in Progress)
+注意：openbaud 目前正处于密集的早期开发阶段。 我们正在全力打磨核心的 AI 模型识别准确率以及解析引擎的吞吐性能。目前的架构和 API 可能会随时发生破坏性变更（Breaking changes），暂不建议将其部署到生产环境中。
+
+欢迎点击右上角的 Star ⭐️ 关注本项目，见证协议认知引擎的演进！
+
+🗺️ 开发路线图 (Roadmap)
+[x] 概念验证 (PoC): 核心模型思路验证与引擎基础架构设计。
+
+[ ] Phase 1: 引擎底座: 构建底层字节流处理模块与规则抽象语法树 (AST)。
+
+[ ] Phase 2: 模型接入: 完成自训练 AI 模型与解析引擎的无缝集成。
+
+[ ] Phase 3: 标准化 API: 提供 HTTP / MQTT / WebSocket 等多协议数据输出接口。
+
+[ ] Phase 4: 开发者 CLI: 发布供开发者在本地测试报文解析和微调模型的命令行工具。
+
+[ ] Phase 5: Alpha Release: 发布首个可用版本，支持主流工业网关设备的开箱即用。
+
+📄 开源协议
+本项目采用 Apache License 2.0 开源协议。
+
+</details>
+
+💡 What is openbaud?
+In the realm of Industrial IoT (IIoT) and edge computing, device fragmentation is a persistent pain point. When dealing with diverse edge gateways, DAQ instruments, or low-level sensors, developers often spend countless hours reading manuals, writing regex, or hardcoding parsers just to make sense of raw hexadecimal payloads.
+
+openbaud is built to shatter this protocol black box. It is not just a high-performance parsing engine; it is an AI-native translator for device communications.
+
+By integrating a custom-trained feature recognition model, openbaud can natively "read" raw byte streams uploaded by devices. It automatically identifies protocol signatures, dynamically generates parsing rules, and outputs structured, business-ready values. Whether it's a cloud platform, an HMI dashboard, or an LLM-driven AI Agent, downstream systems can consume this clean data instantly.
+
+✨ Core Features
+🧠 AI-Driven Cognitive Parsing: Say goodbye to tedious manual rule configurations. The built-in trained model extracts features and recognizes patterns from unknown raw payloads.
+
+⚙️ High-Performance Dynamic Engine: Takes dynamically generated rules from the model and translates Hex/Binary byte streams into meaningful values with ultra-low latency.
+
+🤖 Agent-Ready Architecture: Outputs standardized JSON and semantically labeled data, seamlessly integrating with AI Agents and automated workflows.
+
+🔌 Universal Interoperability: Unifies complex low-layer data, easily handling diverse IoT communication protocols and physical device types.
+
+🎯 Typical Use Cases
+openbaud aims to be the universal interface connecting the physical and digital worlds, highly suited for:
+
+Industrial PLCs & Controllers: Automatically decode underlying communication packets from mainstream or non-standard PLCs.
+
+Electronic Measurement & DAQ: Rapidly parse raw measurement data streams from complex instruments based on SCPI protocols.
+
+LPWAN & Sensor Networks: Smart unpacking and feature extraction for encrypted or compressed payloads from LoRaWAN gateways.
+
+Edge Computing Nodes: Deploy in lightweight edge gateways to perform local "payload-to-value" cleansing and translation before cloud ingestion.
+
+🛠️ How it Works
+Plaintext
+[Edge Gateways / DAQ / PLCs / Sensors] 
+       | (Raw Hex / Bytes / Payloads)
+       v
++---------------------------------------------------+
+|                     openbaud                      |
+|                                                   |
+|  1. AI Model: Identify features -> Generate rules |
+|  2. Engine:   Apply rules -> Translate byte stream|
++---------------------------------------------------+
+       | (Meaningful Values / Structured JSON)
+       v
+[IoT Platforms / AI Agents / Dashboards]
+🚧 Status: Work in Progress
+Note: openbaud is currently in heavy, early-stage development. We are actively refining the core AI model's recognition accuracy and optimizing the parsing engine's throughput. The architecture and APIs are subject to breaking changes at any time. It is not yet recommended for production environments.
+
+However, we highly encourage you to hit the Star ⭐️ button to follow the project and witness the evolution of this protocol cognitive engine!
+
+🗺️ Roadmap
+[x] Proof of Concept (PoC): Core model validation and engine architecture design.
+
+[ ] Phase 1: Engine Core: Build underlying byte stream processing and Abstract Syntax Tree (AST) for rules.
+
+[ ] Phase 2: Model Integration: Seamlessly integrate the custom-trained AI model with the parsing engine.
+
+[ ] Phase 3: Standard APIs: Provide multi-protocol data output interfaces (HTTP / MQTT / WebSocket).
+
+[ ] Phase 4: Developer CLI: Release CLI tools for local payload testing and model fine-tuning.
+
+[ ] Phase 5: Alpha Release: First usable version with out-of-the-box support for mainstream industrial gateway devices.
+
+🚀 Quick Start (Coming Soon)
+(Installation and usage instructions will be provided upon the Alpha release.)
+
+Bash
+# Example: Future installation method
+# npm install openbaud / pip install openbaud / go get ...
+🤝 Contributing
+Although the core codebase is still brewing, we welcome developers interested in IIoT, protocol reverse-engineering, and AI edge computing to join the discussion!
+
+If you have suggestions for the architectural design, or if you want openbaud to prioritize support for specific device types or protocols, feel free to open an Issue to chat with us.
+
+📄 License
+This project is licensed under the Apache License 2.0.
+You are free to use, modify, and distribute it commercially, provided the original copyright notice is retained. See the LICENSE file for details.
